@@ -1,0 +1,93 @@
+
+Open In Colab
+
+print('''
+Find maxium, minimum, median, first quartile, third quartile for the give data set: 23,42,12,10,15,14,9
+solution:
+Given: 23,42,12,10,15,14,9
+Arrange the givent dataset in ascending order
+9,10,12,14,15,23,42
+Hence,
+Minimum = 9
+Maximum = 42
+Median = 14
+First Quartile Q1 = 10 (Middle Value of 9,10,12 is 10)
+Third Quartile Q2 = 23 (Middle Value of 15,23,42 is 23)
+''')
+     
+Find maxium, minimum, median, first quartile, third quartile for the give data set: 23,42,12,10,15,14,9
+solution:
+Given: 23,42,12,10,15,14,9
+Arrange the givent dataset in ascending order
+9,10,12,14,15,23,42
+Hence,
+Minimum = 9
+Maximum = 42
+Median = 14
+First Quartile Q1 = 10 (Middle Value of 9,10,12 is 10)
+Third Quartile Q2 = 23 (Middle Value of 15,23,42 is 23)
+
+
+import numpy as np
+import pandas as pd
+
+np.random.seed(10)
+data = pd.DataFrame({'value': np.concatenate([np.random.normal(0, 10, 5000), np.random.normal(10, 1, 100)])})
+Q1 = data['value'].quantile(0.25)
+Q3 = data['value'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+outliers = data[(data['value'] < lower_bound) | (data['value'] > upper_bound)]
+print("Outliers: ",outliers)
+     
+Outliers:            value
+159  -29.795968
+412  -32.044013
+590  -28.160012
+814  -28.150613
+1036 -33.176691
+1223  27.931658
+1558 -31.126449
+2190  36.091607
+2404  28.195220
+2529 -28.055157
+2565 -27.619559
+2601 -28.623817
+2679 -28.294679
+3083 -27.351311
+3318  29.470987
+3627 -27.526232
+3818 -27.956149
+3948  34.548450
+3952 -27.873396
+4461  29.991898
+4744  29.253242
+4830 -28.317780
+4872 -28.210585
+4912 -33.723470
+
+data = pd.DataFrame({'value': [1, 2, 3, 5, 8, 900, 11, 60]})
+
+Q1 = data['value'].quantile(0.25)
+Q3 = data['value'].quantile(0.75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
+outliers = data[(data['value'] < lower_bound) | (data['value'] > upper_bound)]
+
+print("Outliers:", outliers)
+     
+Outliers:    value
+5    900
+7     60
+
+import matplotlib.pyplot as plt
+
+plt.figure(figsize=(8, 6))
+plt.boxplot(data['value'], vert=True)
+plt.title('Box Plot of Values')
+plt.xlabel('Value')
+plt.show()
+
+     
