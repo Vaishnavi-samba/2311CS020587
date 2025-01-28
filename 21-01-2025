@@ -1,0 +1,54 @@
+
+
+import pandas as pd
+sales_data = {
+    'TransactionID': [1, 2, 3, 4, 5],
+    'CustomerID': [101, 102, 103, 104, 101],
+    'Amount': [250, 300, 400, 500, 600],
+    'Date': ['2025-01-01', '2025-01-02', '2025-01-03', '2025-01-04', '2025-01-05']
+}
+
+customer_data = {
+    'CustomerID': [101, 102, 103, 104],
+    'CustomerName': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [30, 35, 40, None],
+    'City': ['New York', 'Los Angeles', 'Chicago', 'Houston']
+}
+
+sales_df = pd.DataFrame(sales_data)
+customers_df = pd.DataFrame(customer_data)
+     
+
+sales_df[['Amount', 'Date']]
+     
+Amount	Date
+0	250	2025-01-01
+1	300	2025-01-02
+2	400	2025-01-03
+3	500	2025-01-04
+4	600	2025-01-05
+
+customers_df[['CustomerName', 'City']]
+     
+CustomerName	City
+0	Alice	New York
+1	Bob	Los Angeles
+2	Charlie	Chicago
+3	David	Houston
+
+merged_df = pd.merge(sales_df, customers_df, on='CustomerID', how='left')
+filtered_df = merged_df[merged_df['Amount'] > 400]
+filtered_df[['CustomerID', 'Amount']]
+     
+CustomerID	Amount
+3	104	500
+4	101	600
+
+grouped_df = merged_df.groupby('CustomerID').agg({'Amount': 'sum'})
+filtered_grouped = grouped_df[grouped_df['Amount'] > 400]
+filtered_grouped
+     
+Amount
+CustomerID	
+101	850
+104	500
