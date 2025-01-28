@@ -1,0 +1,92 @@
+
+
+import pandas as pd
+import numpy as np
+from sklearn.impute import SimpleImputer
+data = {
+    'square_feet_area': [8500, 9600, np.nan, 11250, np.nan, 9550, 14260, np.nan, 13830, 11500],
+    'Year_built': [2003, 1976, 2001, np.nan, 1998, 2000, 2006, 1978, 1950, np.nan],
+    'over_all_condition': [5, 8, 6, 7, np.nan, 7, 8, 6, np.nan, 7],
+    'ready_to_move': ['Yes', 'No', 'NO', np.nan, 'No', np.nan, 'No', 'Yes', 'No', 'Yes'],
+    'Sale_price': [200000, 180000, 215000, 250000, 210000, 190000, 230000, 225000, 220000, 240000]
+}
+
+df = pd.DataFrame(data)
+print("Original DataFrame:")
+print(df)
+     
+Original DataFrame:
+   square_feet_area  Year_built  over_all_condition ready_to_move  Sale_price
+0            8500.0      2003.0                 5.0           Yes      200000
+1            9600.0      1976.0                 8.0            No      180000
+2               NaN      2001.0                 6.0            NO      215000
+3           11250.0         NaN                 7.0           NaN      250000
+4               NaN      1998.0                 NaN            No      210000
+5            9550.0      2000.0                 7.0           NaN      190000
+6           14260.0      2006.0                 8.0            No      230000
+7               NaN      1978.0                 6.0           Yes      225000
+8           13830.0      1950.0                 NaN            No      220000
+9           11500.0         NaN                 7.0           Yes      240000
+
+df['square_feet_area'].fillna(df['square_feet_area'].mean(), inplace=True)
+df['Year_built'].fillna(df['Year_built'].mean(), inplace=True)
+df['over_all_condition'].fillna(df['over_all_condition'].mean(), inplace=True)
+df['ready_to_move'].fillna(df['ready_to_move'].mode()[0], inplace=True)
+print("\nDataFrame after replacing missing values with mean (for numeric) and mode (for categorical columns):")
+print(df)
+     
+DataFrame after replacing missing values with mean (for numeric) and mode (for categorical columns):
+   square_feet_area  Year_built  over_all_condition ready_to_move  Sale_price
+0       8500.000000      2003.0            5.000000           Yes      200000
+1       9600.000000      1976.0            8.000000            No      180000
+2      11212.857143      2001.0            6.000000            NO      215000
+3      11250.000000      1989.0            7.000000            No      250000
+4      11212.857143      1998.0        11212.857143            No      210000
+5       9550.000000      2000.0            7.000000            No      190000
+6      14260.000000      2006.0            8.000000            No      230000
+7      11212.857143      1978.0            6.000000           Yes      225000
+8      13830.000000      1950.0        11212.857143            No      220000
+9      11500.000000      1989.0            7.000000           Yes      240000
+<ipython-input-26-5fb8dd5e6a35>:1: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df['square_feet_area'].fillna(df['square_feet_area'].mean(), inplace=True)
+<ipython-input-26-5fb8dd5e6a35>:2: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df['Year_built'].fillna(df['Year_built'].mean(), inplace=True)
+<ipython-input-26-5fb8dd5e6a35>:3: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  df['over_all_condition'].fillna(df['over_all_condition'].mean(), inplace=True)
+
+numeric_imputer = SimpleImputer(strategy='mean')
+df[['square_feet_area', 'Year_built', 'over_all_condition']] = numeric_imputer.fit_transform(df[['square_feet_area', 'Year_built', 'over_all_condition']])
+
+categorical_imputer = SimpleImputer(strategy='most_frequent')
+df[['ready_to_move']] = categorical_imputer.fit_transform(df[['ready_to_move']])
+
+print("\nDataFrame after replacing missing values with SimpleImputer (mean for numeric, mode for categorical):")
+print(df)
+     
+DataFrame after replacing missing values with SimpleImputer (mean for numeric, mode for categorical):
+   square_feet_area  Year_built  over_all_condition ready_to_move  Sale_price
+0       8500.000000      2003.0                5.00           Yes      200000
+1       9600.000000      1976.0                8.00            No      180000
+2      11212.857143      2001.0                6.00            NO      215000
+3      11250.000000      1989.0                7.00            No      250000
+4      11212.857143      1998.0                6.75            No      210000
+5       9550.000000      2000.0                7.00            No      190000
+6      14260.000000      2006.0                8.00            No      230000
+7      11212.857143      1978.0                6.00           Yes      225000
+8      13830.000000      1950.0                6.75            No      220000
+9      11500.000000      1989.0                7.00           Yes      240000
