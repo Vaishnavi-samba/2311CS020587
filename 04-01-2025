@@ -1,0 +1,30 @@
+
+# This is a single line comment
+'''
+This
+is 
+a 
+multi-line 
+comment
+'''
+'\nThis\nis \na \nmulti-line \ncomment\n'
+name = "Alice" # String Variable
+age = 30 # Integer Variable
+height = 5.5 # Float Variable
+is_student = True # Boolean Variable
+print("Name: ",name)
+print("Age: ",age)
+print("Height: ",height)
+print("Is Student: ",is_student)
+Name:  Alice
+Age:  30
+Height:  5.5
+Is Student:  True
+user_name = input("Enter your name: ")
+print("Hello, ",user_name)
+Hello,  Praveen
+age = input("Enter your age: ")
+# print(age+1) will give error
+age = int(age)
+print(age+1)
+30
