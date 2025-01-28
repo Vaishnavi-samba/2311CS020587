@@ -1,0 +1,102 @@
+
+
+import pandas as pd
+sales_data = {
+    'TransactionID': [1, 2, 3, 4, 5],
+    'CustomerID': [101, 102, 103, 104, 101],
+    'Amount': [250, 300, 400, 500, 600],
+    'Date': ['2025-01-01', '2025-01-02', '2025-01-03', '2025-01-04', '2025-01-05']
+}
+
+customer_data = {
+    'CustomerID': [101, 102, 103, 104],
+    'CustomerName': ['Alice', 'Bob', 'Charlie', 'David'],
+    'Age': [30, 35, 40, None],
+    'City': ['New York', 'Los Angeles', 'Chicago', 'Houston']
+}
+
+sales_df = pd.DataFrame(sales_data)
+customers_df = pd.DataFrame(customer_data)
+sales_df.head()
+
+     
+TransactionID	CustomerID	Amount	Date
+0	1	101	250	2025-01-01
+1	2	102	300	2025-01-02
+2	3	103	400	2025-01-03
+3	4	104	500	2025-01-04
+4	5	101	600	2025-01-05
+
+sales_df.shape
+     
+(5, 4)
+
+sales_df.describe()
+     
+TransactionID	CustomerID	Amount
+count	5.000000	5.00000	5.000000
+mean	3.000000	102.20000	410.000000
+std	1.581139	1.30384	143.178211
+min	1.000000	101.00000	250.000000
+25%	2.000000	101.00000	300.000000
+50%	3.000000	102.00000	400.000000
+75%	4.000000	103.00000	500.000000
+max	5.000000	104.00000	600.000000
+
+customers_df.describe()
+     
+CustomerID	Age
+count	4.000000	3.0
+mean	102.500000	35.0
+std	1.290994	5.0
+min	101.000000	30.0
+25%	101.750000	32.5
+50%	102.500000	35.0
+75%	103.250000	37.5
+max	104.000000	40.0
+
+sales_df.isnull()
+     
+TransactionID	CustomerID	Amount	Date
+0	False	False	False	False
+1	False	False	False	False
+2	False	False	False	False
+3	False	False	False	False
+4	False	False	False	False
+
+sales_df.isnull().sum()
+     
+0
+TransactionID	0
+CustomerID	0
+Amount	0
+Date	0
+
+dtype: int64
+
+merged__df = pd.merge(sales_df, customers_df, on='CustomerID')
+merged__df
+     
+TransactionID	CustomerID	Amount	Date	CustomerName	Age	City
+0	1	101	250	2025-01-01	Alice	30.0	New York
+1	2	102	300	2025-01-02	Bob	35.0	Los Angeles
+2	3	103	400	2025-01-03	Charlie	40.0	Chicago
+3	4	104	500	2025-01-04	David	NaN	Houston
+4	5	101	600	2025-01-05	Alice	30.0	New York
+
+merged__df['Age'].fillna(merged__df['Age'].mean(), inplace=True)
+merged__df
+     
+<ipython-input-23-d8af0e7a883f>:1: FutureWarning: A value is trying to be set on a copy of a DataFrame or Series through chained assignment using an inplace method.
+The behavior will change in pandas 3.0. This inplace method will never work because the intermediate object on which we are setting values always behaves as a copy.
+
+For example, when doing 'df[col].method(value, inplace=True)', try using 'df.method({col: value}, inplace=True)' or df[col] = df[col].method(value) instead, to perform the operation inplace on the original object.
+
+
+  merged__df['Age'].fillna(merged__df['Age'].mean(), inplace=True)
+TransactionID	CustomerID	Amount	Date	CustomerName	Age	City
+0	1	101	250	2025-01-01	Alice	30.00	New York
+1	2	102	300	2025-01-02	Bob	35.00	Los Angeles
+2	3	103	400	2025-01-03	Charlie	40.00	Chicago
+3	4	104	500	2025-01-04	David	33.75	Houston
+4	5	101	600	2025-01-05	Alice	30.00	New York
