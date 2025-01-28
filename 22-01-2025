@@ -1,0 +1,53 @@
+
+
+data = [1,5, 7, 7, 8, 9, 10, 10, 10, 11, 12, 11, 11]
+plt.hist(data, bins=10, edgecolor='red')
+plt.title('Simple Histogram Example')
+plt.xlabel('Numbers')
+plt.ylabel('Count')
+plt.show()
+     
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+datf = pd.DataFrame({"Season 1": [7,4,5,6,3], "Season 2":[1,2,4,8,9]})
+p = sns.histplot(data=datf)
+p.set(xlabel='X Label Value',ylabel='Y Label Value')
+plt.show()
+     
+
+
+np.random.seed(42)
+data = np.random.randint(20, 81, 1000)
+plt.hist(data, bins=15, edgecolor='green', color='yellow')
+plt.title('Histogram of Cancer Patients Age Distribution')
+plt.xlabel('Age')
+plt.ylabel('Number of Patients')
+plt.show()
+     
+
+
+np.mean(data)
+     
+50.879
+
+np.median(data)
+     
+51.0
+
+data = {'semester': ['Sem 1', 'Sem 1', 'Sem 1', 'Sem 1', 'Sem 1', 'Sem 2', 'Sem 2', 'Sem 2', 'Sem 2', 'Sem 2'],'hours_studied': [5, 8, 10, 4, 6, 9, 11, 7, 12, 8]}
+df = pd.DataFrame(data)
+plt.figure(figsize=(8, 6))
+sns.boxplot(x='semester', y='hours_studied', data=df)
+plt.title('Student Performance: Hours Studied by Semester')
+plt.xlabel('Semester')
+plt.ylabel('Number of Hours Studied')
+plt.show()
+     
+
+
+
+     
