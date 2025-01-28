@@ -1,0 +1,121 @@
+
+
+def div(a,b):
+  return a/b
+print(div(2,4))
+     
+0.5
+
+def dev_dec(func):
+    def inner(a, b):
+        if a
+2.0
+
+def dev_dec(func):
+    def inner(a, b):
+        if b == 0:
+            return "Cannot division by zero."
+        if a
+2.0
+2.0
+Cannot division by zero.
+
+def dev_dec(func):
+    def inner(a, b):
+        if a * b > 20:
+            return a / b
+        else:
+            return func(a, b)
+    return inner
+@dev_dec
+def mul(a, b):
+    return a * b
+print(mul(2, 4))
+print(mul(4, 2))
+print(mul(4, 20))
+     
+8
+8
+0.2
+
+from google.colab import files
+import pandas as pd
+uploaded = files.upload()
+filename = list(uploaded.keys())[0]
+df = pd.read_csv(filename)
+df
+     
+Upload widget is only available when the cell has been executed in the current browser session. Please rerun this cell to enable.
+Saving contact.csv to contact (1).csv
+FIRST NAME	LAST NAME	MOBILE	EMAIL	SALUTATION	TITLE
+0	John	Dodge	555-888-8888	jdodge@example.com	Mr.	SVP of Sales
+1	Sarah	Smith	555-999-8888	ssnith@example.com	Ms.	Senior Sales Rep
+2	George	Dapper	555-999-0000	gdapper@example.com	Dr.	Director of Healthcare
+3	Jack	Dodge	555-888-8888	jdodge2@example.com	Mr.	EVP of Sales
+4	Jessica	Jones	555-999-8888	jjones@example.com	Mrs.	Senior Sales Rep
+5	Dragon	Davich	555-999-0000	dragonr@example.com	Dr.	Senior Member of Medical Staff
+6	Steve	Curio	555-555-5454	curious@example.com	Mr.	Janitor
+7	Laura	Black	555-555-3434	black@example.com	Ms.	Sales Rep
+8	Wilhelm	Blake	555-555-5543	wblake@example.com	Mr.	CEO
+9	Winter	Drake	555-555-5554	dragon2@example.com	Mr.	CFO
+10	Sal	Sands	555-555-5553	sandssquared@example.com	Mr.	CTO
+11	Julia	Wilds	555-555-9988	jwilds@example.com	Ms.	CMO
+12	Juniper	Birsch	555-555-5432	woodsy@example.com	Mrs.	Director of Engineering
+13	Valerie	Duncan	555-555-3433	vduncan@example.com	Ms.	Senior Member, Technical Staff
+14	Patti	Patel	555-555-4334	ppatel@example.com	Mrs.	Head of Software Engineering
+15	Justin	Short	555-445-3343	jshort@example.com	Mr.	Actor
+16	John	Downes	555-444-0117	bungie@example.com	Mr.	Master Chief
+17	Xavier	Birch	555-000-0333	xjb@example.com	Mr.	Chair of Genealogy
+18	Basil	Wenceslas	555-666-3433	hansa@example.com	Chairman	Chairman
+19	Alice	Black	555-555-5555	blackalice@example.com	Ms.	Botanist
+
+df.describe()
+     
+FIRST NAME	LAST NAME	MOBILE	EMAIL	SALUTATION	TITLE
+count	20	20	20	20	20	20
+unique	19	18	17	20	5	19
+top	John	Dodge	555-888-8888	jdodge@example.com	Mr.	Senior Sales Rep
+freq	2	2	2	1	9	2
+
+df.info()
+     
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 20 entries, 0 to 19
+Data columns (total 6 columns):
+ #   Column      Non-Null Count  Dtype 
+---  ------      --------------  ----- 
+ 0   FIRST NAME  20 non-null     object
+ 1   LAST NAME   20 non-null     object
+ 2   MOBILE      20 non-null     object
+ 3   EMAIL       20 non-null     object
+ 4   SALUTATION  20 non-null     object
+ 5   TITLE       20 non-null     object
+dtypes: object(6)
+memory usage: 1.1+ KB
+
+df.iloc[::,:3]
+     
+FIRST NAME	LAST NAME	MOBILE
+0	John	Dodge	555-888-8888
+1	Sarah	Smith	555-999-8888
+2	George	Dapper	555-999-0000
+3	Jack	Dodge	555-888-8888
+4	Jessica	Jones	555-999-8888
+5	Dragon	Davich	555-999-0000
+6	Steve	Curio	555-555-5454
+7	Laura	Black	555-555-3434
+8	Wilhelm	Blake	555-555-5543
+9	Winter	Drake	555-555-5554
+10	Sal	Sands	555-555-5553
+11	Julia	Wilds	555-555-9988
+12	Juniper	Birsch	555-555-5432
+13	Valerie	Duncan	555-555-3433
+14	Patti	Patel	555-555-4334
+15	Justin	Short	555-445-3343
+16	John	Downes	555-444-0117
+17	Xavier	Birch	555-000-0333
+18	Basil	Wenceslas	555-666-3433
+19	Alice	Black	555-555-5555
+
+
+     
