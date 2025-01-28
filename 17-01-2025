@@ -1,0 +1,511 @@
+
+
+a = "AD_Machine_Learning"
+for i in range(len(a)):
+    print(a[i:i+2])
+for i in range(len(a) - 2):
+  print(a[i:i+3])
+     
+AD
+D_
+_M
+Ma
+ac
+ch
+hi
+in
+ne
+e_
+_L
+Le
+ea
+ar
+rn
+ni
+in
+ng
+g
+AD_
+D_M
+_Ma
+Mac
+ach
+chi
+hin
+ine
+ne_
+e_L
+_Le
+Lea
+ear
+arn
+rni
+nin
+ing
+
+from google.colab import files
+import pandas as pd
+uploaded = files.upload()
+filename = list(uploaded.keys())[0]
+df = pd.read_csv(filename)
+df
+     
+Upload widget is only available when the cell has been executed in the current browser session. Please rerun this cell to enable.
+Saving customers-100.csv to customers-100.csv
+Index	Customer Id	First Name	Last Name	Company	City	Country	Phone 1	Phone 2	Email	Subscription Date	Website
+0	1	DD37Cf93aecA6Dc	Sheryl	Baxter	Rasmussen Group	East Leonard	Chile	229.077.5154	397.884.0519x718	zunigavanessa@smith.info	2020-08-24	http://www.stephenson.com/
+1	2	1Ef7b82A4CAAD10	Preston	Lozano	Vega-Gentry	East Jimmychester	Djibouti	5153435776	686-620-1820x944	vmata@colon.com	2021-04-23	http://www.hobbs.com/
+2	3	6F94879bDAfE5a6	Roy	Berry	Murillo-Perry	Isabelborough	Antigua and Barbuda	+1-539-402-0259	(496)978-3969x58947	beckycarr@hogan.com	2020-03-25	http://www.lawrence.com/
+3	4	5Cef8BFA16c5e3c	Linda	Olsen	Dominguez, Mcmillan and Donovan	Bensonview	Dominican Republic	001-808-617-6467x12895	+1-813-324-8756	stanleyblackwell@benson.org	2020-06-02	http://www.good-lyons.com/
+4	5	053d585Ab6b3159	Joanna	Bender	Martin, Lang and Andrade	West Priscilla	Slovakia (Slovak Republic)	001-234-203-0635x76146	001-199-446-3860x3486	colinalvarado@miles.net	2021-04-17	https://goodwin-ingram.com/
+...	...	...	...	...	...	...	...	...	...	...	...	...
+95	96	cb8E23e48d22Eae	Karl	Greer	Carey LLC	East Richard	Guyana	(188)169-1674x58692	001-841-293-3519x614	hhart@jensen.com	2022-01-30	http://hayes-perez.com/
+96	97	CeD220bdAaCfaDf	Lynn	Atkinson	Ware, Burns and Oneal	New Bradview	Sri Lanka	+1-846-706-2218	605.413.3198	vkemp@ferrell.com	2021-07-10	https://novak-allison.com/
+97	98	28CDbC0dFe4b1Db	Fred	Guerra	Schmitt-Jones	Ortegaland	Solomon Islands	+1-753-067-8419x7170	+1-632-666-7507x92121	swagner@kane.org	2021-09-18	https://www.ross.com/
+98	99	c23d1D9EE8DEB0A	Yvonne	Farmer	Fitzgerald-Harrell	Lake Elijahview	Aruba	(530)311-9786	001-869-452-0943x12424	mccarthystephen@horn-green.biz	2021-08-11	http://watkins.info/
+99	100	2354a0E336A91A1	Clarence	Haynes	Le, Nash and Cross	Judymouth	Honduras	(753)813-6941	783.639.1472	colleen91@faulkner.biz	2020-03-11	http://www.hatfield-saunders.net/
+100 rows × 12 columns
+
+
+print(df.head())
+
+print(df.tail())
+print(df.iloc[:3,:4])
+
+print(df.iloc[1:50,1:5])
+     
+   Index      Customer Id First Name Last Name  \
+0      1  DD37Cf93aecA6Dc     Sheryl    Baxter   
+1      2  1Ef7b82A4CAAD10    Preston    Lozano   
+2      3  6F94879bDAfE5a6        Roy     Berry   
+3      4  5Cef8BFA16c5e3c      Linda     Olsen   
+4      5  053d585Ab6b3159     Joanna    Bender   
+
+                           Company               City  \
+0                  Rasmussen Group       East Leonard   
+1                      Vega-Gentry  East Jimmychester   
+2                    Murillo-Perry      Isabelborough   
+3  Dominguez, Mcmillan and Donovan         Bensonview   
+4         Martin, Lang and Andrade     West Priscilla   
+
+                      Country                 Phone 1                Phone 2  \
+0                       Chile            229.077.5154       397.884.0519x718   
+1                    Djibouti              5153435776       686-620-1820x944   
+2         Antigua and Barbuda         +1-539-402-0259    (496)978-3969x58947   
+3          Dominican Republic  001-808-617-6467x12895        +1-813-324-8756   
+4  Slovakia (Slovak Republic)  001-234-203-0635x76146  001-199-446-3860x3486   
+
+                         Email Subscription Date                      Website  
+0     zunigavanessa@smith.info        2020-08-24   http://www.stephenson.com/  
+1              vmata@colon.com        2021-04-23        http://www.hobbs.com/  
+2          beckycarr@hogan.com        2020-03-25     http://www.lawrence.com/  
+3  stanleyblackwell@benson.org        2020-06-02   http://www.good-lyons.com/  
+4      colinalvarado@miles.net        2021-04-17  https://goodwin-ingram.com/  
+    Index      Customer Id First Name Last Name                Company  \
+95     96  cb8E23e48d22Eae       Karl     Greer              Carey LLC   
+96     97  CeD220bdAaCfaDf       Lynn  Atkinson  Ware, Burns and Oneal   
+97     98  28CDbC0dFe4b1Db       Fred    Guerra          Schmitt-Jones   
+98     99  c23d1D9EE8DEB0A     Yvonne    Farmer     Fitzgerald-Harrell   
+99    100  2354a0E336A91A1   Clarence    Haynes     Le, Nash and Cross   
+
+               City          Country               Phone 1  \
+95     East Richard           Guyana   (188)169-1674x58692   
+96     New Bradview        Sri Lanka       +1-846-706-2218   
+97       Ortegaland  Solomon Islands  +1-753-067-8419x7170   
+98  Lake Elijahview            Aruba         (530)311-9786   
+99        Judymouth         Honduras         (753)813-6941   
+
+                   Phone 2                           Email Subscription Date  \
+95    001-841-293-3519x614                hhart@jensen.com        2022-01-30   
+96            605.413.3198               vkemp@ferrell.com        2021-07-10   
+97   +1-632-666-7507x92121                swagner@kane.org        2021-09-18   
+98  001-869-452-0943x12424  mccarthystephen@horn-green.biz        2021-08-11   
+99            783.639.1472          colleen91@faulkner.biz        2020-03-11   
+
+                              Website  
+95            http://hayes-perez.com/  
+96         https://novak-allison.com/  
+97              https://www.ross.com/  
+98               http://watkins.info/  
+99  http://www.hatfield-saunders.net/  
+   Index      Customer Id First Name Last Name
+0      1  DD37Cf93aecA6Dc     Sheryl    Baxter
+1      2  1Ef7b82A4CAAD10    Preston    Lozano
+2      3  6F94879bDAfE5a6        Roy     Berry
+        Customer Id First Name    Last Name                          Company
+1   1Ef7b82A4CAAD10    Preston       Lozano                      Vega-Gentry
+2   6F94879bDAfE5a6        Roy        Berry                    Murillo-Perry
+3   5Cef8BFA16c5e3c      Linda        Olsen  Dominguez, Mcmillan and Donovan
+4   053d585Ab6b3159     Joanna       Bender         Martin, Lang and Andrade
+5   2d08FB17EE273F4      Aimee        Downs                     Steele Group
+6   EA4d384DfDbBf77     Darren         Peck     Lester, Woodard and Mitchell
+7   0e04AFde9f225dE      Brett       Mullen     Sanford, Davenport and Giles
+8   C2dE4dEEc489ae0     Sheryl       Meyers                   Browning-Simon
+9   8C2811a503C7c5a   Michelle    Gallagher                     Beck-Hendrix
+10  216E205d6eBb815       Carl    Schroeder       Oconnell, Meza and Everett
+11  CEDec94deE6d69B      Jenna       Dodson        Hoffman, Reed and Mcclain
+12  e35426EbDEceaFF     Tracey         Mata                   Graham-Francis
+13  A08A8aF8BE9FaD4   Kristine          Cox                   Carpenter-Cook
+14  6fEaA1b7cab7B6C      Faith         Lutz                   Carter-Hancock
+15  8cad0b4CBceaeec    Miranda      Beasley               Singleton and Sons
+16  a5DC21AE3a21eaA   Caroline        Foley                  Winters-Mendoza
+17  F8Aa9d6DfcBeeF8       Greg         Mata                    Valentine LLC
+18  F160f5Db3EfE973   Clifford     Jacobson                        Simon LLC
+19  0F60FF3DdCd7aB0     Joanna         Kirk                   Mays-Mccormick
+20  9F9AdB7B8A6f7F2    Maxwell         Frye                    Patterson Inc
+21  FBd0Ded4F02a742      Kiara      Houston       Manning, Hester and Arroyo
+22  2FB0FAA1d429421    Colleen       Howard                   Greer and Sons
+23  010468dAA11382c      Janet   Valenzuela                  Watts-Donaldson
+24  eC1927Ca84E033e      Shane       Wilcox                       Tucker LLC
+25  09D7D7C8Fe09aea     Marcus        Moody                        Giles Ltd
+26  aBdfcF2c50b0bfD     Dakota        Poole                    Simmons Group
+27  b92EBfdF8a3f0E6  Frederick       Harper        Hinton, Chaney and Stokes
+28  3B5dAAFA41AFa22   Stefanie  Fitzpatrick                    Santana-Duran
+29  EDA69ca7a6e96a2       Kent     Bradshaw                       Sawyer PLC
+30  64DCcDFaB9DFd4e       Jack         Tate      Acosta, Petersen and Morrow
+31  679c6c83DD872d6        Tom     Trujillo                      Mcgee Group
+32  7Ce381e4Afa4ba9    Gabriel        Mejia                   Adkins-Salinas
+33  A09AEc6E3bF70eE    Kaitlyn      Santana                    Herrera Group
+34  aA9BAFfBc3710fe      Faith         Moon        Waters, Chase and Aguilar
+35  E11dfb2DB8C9f72     Tammie        Haley       Palmer, Barnes and Houston
+36  889eCf90f68c5Da   Nicholas         Sosa                       Jordan Ltd
+37  7a1Ee69F4fF4B4D     Jordan          Gay                  Glover and Sons
+38  dca4f1D0A0fc5c9      Bruce      Esparza                    Huerta-Mclean
+39  17aD8e2dB3df03D     Sherry        Garza                     Anderson Ltd
+40  2f79Cd309624Abb    Natalie       Gentry                       Monroe PLC
+41  6e5ad5a5e2bB5Ca      Bryan         Dunn                 Kaufman and Sons
+42  7E441b6B228DBcA      Wayne      Simpson                  Perkins-Trevino
+43  D3fC11A9C235Dc6       Luis        Greer                        Cross PLC
+44  30Dfa48fe5Ede78     Rhonda        Frost  Herrera, Shepherd and Underwood
+45  fD780ED8dbEae7B     Joanne       Montes       Price, Sexton and Mcdaniel
+46  300A40d3ce24bBA   Geoffrey       Guzman                    Short-Wiggins
+47  283DFCD0Dba40aF     Gloria       Mccall        Brennan, Acosta and Ramos
+48  F4Fc91fEAEad286      Brady        Cohen                 Osborne-Erickson
+49  80F33Fd2AcebF05     Latoya       Mccann       Hobbs, Garrett and Sanford
+
+print(df.iloc[5:60,4:6])
+     
+                            Company                 City
+5                      Steele Group        Chavezborough
+6      Lester, Woodard and Mitchell             Lake Ana
+7      Sanford, Davenport and Giles              Kimport
+8                    Browning-Simon         Robersonstad
+9                      Beck-Hendrix           Elaineberg
+10       Oconnell, Meza and Everett         Shannonville
+11        Hoffman, Reed and Mcclain          East Andrea
+12                   Graham-Francis    South Joannamouth
+13                   Carpenter-Cook             Jodyberg
+14                   Carter-Hancock            Burchbury
+15               Singleton and Sons         Desireeshire
+16                  Winters-Mendoza    West Adriennestad
+17                    Valentine LLC          Lake Leslie
+18                        Simon LLC           Harmonview
+19                   Mays-Mccormick           Jamesshire
+20                    Patterson Inc           East Carly
+21       Manning, Hester and Arroyo          South Alvin
+22                   Greer and Sons         Brittanyview
+23                  Watts-Donaldson        Veronicamouth
+24                       Tucker LLC           Bryanville
+25                        Giles Ltd          Kaitlyntown
+26                    Simmons Group         Michealshire
+27        Hinton, Chaney and Stokes    South Marissatown
+28                    Santana-Duran         Acevedoville
+29                       Sawyer PLC         North Harold
+30      Acosta, Petersen and Morrow          West Samuel
+31                      Mcgee Group    Cunninghamborough
+32                   Adkins-Salinas        Port Annatown
+33                    Herrera Group          New Kaitlyn
+34        Waters, Chase and Aguilar     West Marthaburgh
+35       Palmer, Barnes and Houston          East Teresa
+36                       Jordan Ltd         South Hunter
+37                  Glover and Sons         South Walter
+38                    Huerta-Mclean            Poolefurt
+39                     Anderson Ltd            West John
+40                       Monroe PLC          West Darius
+41                 Kaufman and Sons        North Jimstad
+42                  Perkins-Trevino  East Rebekahborough
+43                        Cross PLC           North Drew
+44  Herrera, Shepherd and Underwood      Lake Lindaburgh
+45       Price, Sexton and Mcdaniel        Gwendolynview
+46                    Short-Wiggins        Zimmermanland
+47        Brennan, Acosta and Ramos       North Kerriton
+48                 Osborne-Erickson    North Eileenville
+49       Hobbs, Garrett and Sanford      Port Sergiofort
+50          Phelps, Forbes and Koch       New Alberttown
+51          May, Goodwin and Martin        South Jasmine
+52     Christian, Winters and Ellis            Cowanfort
+53                         Byrd Inc          New Deborah
+54        Nixon, Blackwell and Sosa            Wallstown
+55                       Montes PLC    Lake Ellenchester
+56                        Costa PLC         Lake Whitney
+57                        Novak LLC       East Jaredbury
+58           Moore, Mccoy and Glass           Selenabury
+59                        Petty Ltd            Huangfort
+
+df.describe()
+     
+Index
+count	100.000000
+mean	50.500000
+std	29.011492
+min	1.000000
+25%	25.750000
+50%	50.500000
+75%	75.250000
+max	100.000000
+
+print(df.loc[0:3])
+df.shape
+     
+   Index      Customer Id First Name Last Name  \
+0      1  DD37Cf93aecA6Dc     Sheryl    Baxter   
+1      2  1Ef7b82A4CAAD10    Preston    Lozano   
+2      3  6F94879bDAfE5a6        Roy     Berry   
+3      4  5Cef8BFA16c5e3c      Linda     Olsen   
+
+                           Company               City              Country  \
+0                  Rasmussen Group       East Leonard                Chile   
+1                      Vega-Gentry  East Jimmychester             Djibouti   
+2                    Murillo-Perry      Isabelborough  Antigua and Barbuda   
+3  Dominguez, Mcmillan and Donovan         Bensonview   Dominican Republic   
+
+                  Phone 1              Phone 2                        Email  \
+0            229.077.5154     397.884.0519x718     zunigavanessa@smith.info   
+1              5153435776     686-620-1820x944              vmata@colon.com   
+2         +1-539-402-0259  (496)978-3969x58947          beckycarr@hogan.com   
+3  001-808-617-6467x12895      +1-813-324-8756  stanleyblackwell@benson.org   
+
+  Subscription Date                     Website  
+0        2020-08-24  http://www.stephenson.com/  
+1        2021-04-23       http://www.hobbs.com/  
+2        2020-03-25    http://www.lawrence.com/  
+3        2020-06-02  http://www.good-lyons.com/  
+(100, 12)
+
+df.columns
+     
+Index(['Index', 'Customer Id', 'First Name', 'Last Name', 'Company', 'City',
+       'Country', 'Phone 1', 'Phone 2', 'Email', 'Subscription Date',
+       'Website'],
+      dtype='object')
+
+data = df['Company'] == 'Vega-Gentry'
+data
+     
+Company
+0	False
+1	True
+2	False
+3	False
+4	False
+...	...
+95	False
+96	False
+97	False
+98	False
+99	False
+100 rows × 1 columns
+
+
+dtype: bool
+
+df.drop('Country',axis=1)
+     
+Index	Customer Id	First Name	Last Name	Company	City	Phone 1	Phone 2	Email	Subscription Date	Website
+0	1	DD37Cf93aecA6Dc	Sheryl	Baxter	Rasmussen Group	East Leonard	229.077.5154	397.884.0519x718	zunigavanessa@smith.info	2020-08-24	http://www.stephenson.com/
+1	2	1Ef7b82A4CAAD10	Preston	Lozano	Vega-Gentry	East Jimmychester	5153435776	686-620-1820x944	vmata@colon.com	2021-04-23	http://www.hobbs.com/
+2	3	6F94879bDAfE5a6	Roy	Berry	Murillo-Perry	Isabelborough	+1-539-402-0259	(496)978-3969x58947	beckycarr@hogan.com	2020-03-25	http://www.lawrence.com/
+3	4	5Cef8BFA16c5e3c	Linda	Olsen	Dominguez, Mcmillan and Donovan	Bensonview	001-808-617-6467x12895	+1-813-324-8756	stanleyblackwell@benson.org	2020-06-02	http://www.good-lyons.com/
+4	5	053d585Ab6b3159	Joanna	Bender	Martin, Lang and Andrade	West Priscilla	001-234-203-0635x76146	001-199-446-3860x3486	colinalvarado@miles.net	2021-04-17	https://goodwin-ingram.com/
+...	...	...	...	...	...	...	...	...	...	...	...
+95	96	cb8E23e48d22Eae	Karl	Greer	Carey LLC	East Richard	(188)169-1674x58692	001-841-293-3519x614	hhart@jensen.com	2022-01-30	http://hayes-perez.com/
+96	97	CeD220bdAaCfaDf	Lynn	Atkinson	Ware, Burns and Oneal	New Bradview	+1-846-706-2218	605.413.3198	vkemp@ferrell.com	2021-07-10	https://novak-allison.com/
+97	98	28CDbC0dFe4b1Db	Fred	Guerra	Schmitt-Jones	Ortegaland	+1-753-067-8419x7170	+1-632-666-7507x92121	swagner@kane.org	2021-09-18	https://www.ross.com/
+98	99	c23d1D9EE8DEB0A	Yvonne	Farmer	Fitzgerald-Harrell	Lake Elijahview	(530)311-9786	001-869-452-0943x12424	mccarthystephen@horn-green.biz	2021-08-11	http://watkins.info/
+99	100	2354a0E336A91A1	Clarence	Haynes	Le, Nash and Cross	Judymouth	(753)813-6941	783.639.1472	colleen91@faulkner.biz	2020-03-11	http://www.hatfield-saunders.net/
+100 rows × 11 columns
+
+
+df.drop('City',axis=1)
+     
+Index	Customer Id	First Name	Last Name	Company	Country	Phone 1	Phone 2	Email	Subscription Date	Website
+0	1	DD37Cf93aecA6Dc	Sheryl	Baxter	Rasmussen Group	Chile	229.077.5154	397.884.0519x718	zunigavanessa@smith.info	2020-08-24	http://www.stephenson.com/
+1	2	1Ef7b82A4CAAD10	Preston	Lozano	Vega-Gentry	Djibouti	5153435776	686-620-1820x944	vmata@colon.com	2021-04-23	http://www.hobbs.com/
+2	3	6F94879bDAfE5a6	Roy	Berry	Murillo-Perry	Antigua and Barbuda	+1-539-402-0259	(496)978-3969x58947	beckycarr@hogan.com	2020-03-25	http://www.lawrence.com/
+3	4	5Cef8BFA16c5e3c	Linda	Olsen	Dominguez, Mcmillan and Donovan	Dominican Republic	001-808-617-6467x12895	+1-813-324-8756	stanleyblackwell@benson.org	2020-06-02	http://www.good-lyons.com/
+4	5	053d585Ab6b3159	Joanna	Bender	Martin, Lang and Andrade	Slovakia (Slovak Republic)	001-234-203-0635x76146	001-199-446-3860x3486	colinalvarado@miles.net	2021-04-17	https://goodwin-ingram.com/
+...	...	...	...	...	...	...	...	...	...	...	...
+95	96	cb8E23e48d22Eae	Karl	Greer	Carey LLC	Guyana	(188)169-1674x58692	001-841-293-3519x614	hhart@jensen.com	2022-01-30	http://hayes-perez.com/
+96	97	CeD220bdAaCfaDf	Lynn	Atkinson	Ware, Burns and Oneal	Sri Lanka	+1-846-706-2218	605.413.3198	vkemp@ferrell.com	2021-07-10	https://novak-allison.com/
+97	98	28CDbC0dFe4b1Db	Fred	Guerra	Schmitt-Jones	Solomon Islands	+1-753-067-8419x7170	+1-632-666-7507x92121	swagner@kane.org	2021-09-18	https://www.ross.com/
+98	99	c23d1D9EE8DEB0A	Yvonne	Farmer	Fitzgerald-Harrell	Aruba	(530)311-9786	001-869-452-0943x12424	mccarthystephen@horn-green.biz	2021-08-11	http://watkins.info/
+99	100	2354a0E336A91A1	Clarence	Haynes	Le, Nash and Cross	Honduras	(753)813-6941	783.639.1472	colleen91@faulkner.biz	2020-03-11	http://www.hatfield-saunders.net/
+100 rows × 11 columns
+
+
+# importing the module
+import pandas as pd
+
+# creating a sample dataframe
+data = pd.DataFrame({
+    'Brand': ['Maruti', 'Hyundai', 'Tata',
+              'Mahindra', 'Maruti', 'Hyundai',
+              'Renault', 'Tata', 'Maruti'],
+    'Year': [2012, 2014, 2011, 2015, 2012,
+             2016, 2014, 2018, 2019],
+    'Kms Driven': [50000, 30000, 60000,
+                   25000, 10000, 46000,
+                   31000, 15000, 12000],
+    'City': ['Gurgaon', 'Delhi', 'Mumbai',
+             'Delhi', 'Mumbai', 'Delhi',
+             'Mumbai', 'Chennai', 'Ghaziabad'],
+    'Mileage': [28, 27, 25, 26, 28,
+                29, 24, 21, 24]
+})
+
+# displaying the DataFrame
+display(data)
+     
+Brand	Year	Kms Driven	City	Mileage
+0	Maruti	2012	50000	Gurgaon	28
+1	Hyundai	2014	30000	Delhi	27
+2	Tata	2011	60000	Mumbai	25
+3	Mahindra	2015	25000	Delhi	26
+4	Maruti	2012	10000	Mumbai	28
+5	Hyundai	2016	46000	Delhi	29
+6	Renault	2014	31000	Mumbai	24
+7	Tata	2018	15000	Chennai	21
+8	Maruti	2019	12000	Ghaziabad	24
+
+display(data.loc[(data.Brand == 'Maruti')])
+     
+Brand	Year	Kms Driven	City	Mileage
+0	Maruti	2012	50000	Gurgaon	28
+4	Maruti	2012	10000	Mumbai	28
+8	Maruti	2019	12000	Ghaziabad	24
+
+display(data.loc[(data.Mileage < 25)])
+     
+Brand	Year	Kms Driven	City	Mileage
+6	Renault	2014	31000	Mumbai	24
+7	Tata	2018	15000	Chennai	21
+8	Maruti	2019	12000	Ghaziabad	24
+
+dict = {'Customer_Id':[1,2,3,4,5,6],'Product':['Oven','Oven','Oven','Television','Television','Television']}
+df = pd.DataFrame(dict)
+df
+     
+Customer_Id	Product
+0	1	Oven
+1	2	Oven
+2	3	Oven
+3	4	Television
+4	5	Television
+5	6	Television
+
+dict = {'Customer_Id':[1,4,6,7,8],'State':['California','California','Texas','Texas','New york']}
+df1 = pd.DataFrame(dict)
+df1
+     
+Customer_Id	State
+0	1	California
+1	4	California
+2	6	Texas
+3	7	Texas
+4	8	New york
+
+inner_merged_df = pd.merge(df, df1, on='Customer_Id', how='inner')
+inner_merged_df
+     
+Customer_Id	Product	State
+0	1	Oven	California
+1	4	Television	California
+2	6	Television	Texas
+
+outer_merged_df = pd.merge(df, df1, on='Customer_Id', how='outer')
+outer_merged_df
+     
+Customer_Id	Product	State
+0	1	Oven	California
+1	2	Oven	NaN
+2	3	Oven	NaN
+3	4	Television	California
+4	5	Television	NaN
+5	6	Television	Texas
+6	7	NaN	Texas
+7	8	NaN	New york
+
+left_merged_df = pd.merge(df, df1, on='Customer_Id', how='left')
+left_merged_df
+     
+Customer_Id	Product	State
+0	1	Oven	California
+1	2	Oven	NaN
+2	3	Oven	NaN
+3	4	Television	California
+4	5	Television	NaN
+5	6	Television	Texas
+
+right_merged_df = pd.merge(df, df1, on='Customer_Id', how='right')
+right_merged_df
+     
+Customer_Id	Product	State
+0	1	Oven	California
+1	4	Television	California
+2	6	Television	Texas
+3	7	NaN	Texas
+4	8	NaN	New york
+
+import pandas as pd
+
+data1 = {'Customer_Name': ['Pavan', 'Ram', 'Asad', 'Karthik', 'Bhargav'],
+        'Product': ['Oven', 'Oven', 'Television', 'Television', 'Refrigerator']}
+df2 = pd.DataFrame(data1)
+
+data2 = {'Product': ['Oven', 'Television', 'Refrigerator', 'Microwave'],
+        'Price': [500, 800, 1200,300]}
+df3 = pd.DataFrame(data2)
+
+     
+
+inner_merged_df = pd.merge(df2, df3, on='Product', how='inner')
+print(inner_merged_df)
+     
+  Customer_Name       Product  Price
+0         Pavan          Oven    500
+1           Ram          Oven    500
+2          Asad    Television    800
+3       Karthik    Television    800
+4       Bhargav  Refrigerator   1200
+
+outer_merged_df = pd.merge(df2, df3, on='Product', how='outer')
+print(outer_merged_df)
+     
+  Customer_Name       Product  Price
+0           NaN     Microwave    300
+1         Pavan          Oven    500
+2           Ram          Oven    500
+3       Bhargav  Refrigerator   1200
+4          Asad    Television    800
+5       Karthik    Television    800
+
+left_merged_df = pd.merge(df2, df3, on='Product', how='left')
+print(left_merged_df)
+     
+  Customer_Name       Product  Price
+0         Pavan          Oven    500
+1           Ram          Oven    500
+2          Asad    Television    800
+3       Karthik    Television    800
+4       Bhargav  Refrigerator   1200
+
+right_merged_df = pd.merge(df2, df3, on='Product', how='right')
+print(right_merged_df)
+     
+  Customer_Name       Product  Price
+0         Pavan          Oven    500
+1           Ram          Oven    500
+2          Asad    Television    800
+3       Karthik    Television    800
+4       Bhargav  Refrigerator   1200
+5           NaN     Microwave    300
